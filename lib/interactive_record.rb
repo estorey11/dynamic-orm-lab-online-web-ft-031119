@@ -55,7 +55,7 @@ class InteractiveRecord
   
   def self.find_by(attribute)
     value=attribute.values[0]
-    
+    if value.class != Fixnum
     sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys[0].to_s} = #{value}"
     DB[:conn].execute(sql)
   end
